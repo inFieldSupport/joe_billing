@@ -6,21 +6,21 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-3.0.0
-if not
-rbenv install 3.0.0
+* * 3.0.0
+* if not
+* * rbenv install 3.0.0
 
 * System dependencies
-bundle install
+* * bundle install
 
 * Configuration
 
 * Database creation
-rails db:create
+* * rails db:create
 
 * Database initialization
-rails db:migrate
-rails db:seed
+* * rails db:migrate
+* * rails db:seed
 
 * How to run the test suite
 
