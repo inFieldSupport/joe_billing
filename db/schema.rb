@@ -17,6 +17,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_131800) do
   create_table "client_services", force: :cascade do |t|
     t.bigint "client_id", null: false
     t.bigint "service_id", null: false
+    t.float "rate"
+    t.integer "registered_users"
+    t.integer "active_users"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["client_id"], name: "index_client_services_on_client_id"
@@ -32,9 +35,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_131800) do
 
   create_table "services", force: :cascade do |t|
     t.string "name"
-    t.float "rate"
-    t.integer "registered_users"
-    t.integer "active_users"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
