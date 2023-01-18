@@ -1,141 +1,86 @@
 # Clients
-client1 = Client.new(name: "A&G", total_customers: 0)
-client1.save!
-
-client2 = Client.new(name: "Custom Brands (Eclipse)", total_customers: 0)
-client2.save!
-
-client3 = Client.new(name: "Eastwing", total_customers: 0)
-client3.save!
-
-client4 = Client.new(name: "LUMAR Fire", total_customers: 0)
-client4.save!
-
-client5 = Client.new(name: "MC Mech", total_customers: 0)
-client5.save!
-
-client6 = Client.new(name: "Mobile Mech", total_customers: 0)
-client6.save!
-
-client7 = Client.new(name: "ORHMA", total_customers: 0)
-client7.save!
-
-client8 = Client.new(name: "PPL Aquatic", total_customers: 0)
-client8.save!
-
-client9 = Client.new(name: "Sun Mech", total_customers: 0)
-client9.save!
-
-client10 = Client.new(name: "Vics Group", total_customers: 0)
-client10.save!
-
-client11 = Client.new(name: "Daniels", total_customers: 0)
-client11.save!
-
-client12 = Client.new(name: "Talize Inc", total_customers: 0)
-client12.save!
-
-client13 = Client.new(name: "ventureLAB", total_customers: 0)
-client13.save!
-
-client14 = Client.new(name: "Goodmark", total_customers: 0)
-client14.save!
+client1 = Client.create(name: "A&G", total_customers: 0)
+client2 = Client.create(name: "Custom Brands (Eclipse)", total_customers: 0)
+client3 = Client.create(name: "Eastwing", total_customers: 0)
+client4 = Client.create(name: "LUMAR Fire", total_customers: 0)
+client5 = Client.create(name: "MC Mech", total_customers: 0)
+client6 = Client.create(name: "Mobile Mech", total_customers: 0)
+client7 = Client.create(name: "ORHMA", total_customers: 0)
+client8 = Client.create(name: "PPL Aquatic", total_customers: 0)
+client9 = Client.create(name: "Sun Mech", total_customers: 0)
+client10 = Client.create(name: "Vics Group", total_customers: 0)
+client11 = Client.create(name: "Daniels", total_customers: 0)
+client12 = Client.create(name: "Talize Inc", total_customers: 0)
+client13 = Client.create(name: "ventureLAB", total_customers: 0)
+client14 = Client.create(name: "Goodmark", total_customers: 0)
 
 # Services
-service1 = Service.new(name: "Admin")
-service1.save!
-service2 = Service.new(name: "dispatcher")
-service2.save!
-service3 = Service.new(name: "mechanic")
-service3.save!
-service4 = Service.new(name: "office_staff")
-service4.save!
-service5 = Service.new(name: "sub_contractor")
-service5.save!
-service6 = Service.new(name: "Technician (active)")
-service6.save!
-service7 = Service.new(name: "Consumers")
-service7.save!
-service8 = Service.new(name: "Telematics(GPS)")
-service8.save!
-service9 = Service.new(name: "Accounting")
-service9.save!
-service10 = Service.new(name: "Bin Module")
-service10.save!
-service11 = Service.new(name: "Bin Monitoring")
-service11.save!
-service12 = Service.new(name: "SMS Delivery")
-service12.save!
-service13 = Service.new(name: "Routing")
-service13.save!
+service_type1 = ServiceType.create(name: "Admin")
+service_type2 = ServiceType.create(name: "dispatcher")
+service_type3 = ServiceType.create(name: "mechanic")
+service_type4 = ServiceType.create(name: "office_staff")
+service_type5 = ServiceType.create(name: "sub_contractor")
+service_type6 = ServiceType.create(name: "Technician (active)")
+service_type7 = ServiceType.create(name: "Consumers")
+service_type8 = ServiceType.create(name: "Telematics(GPS)")
+service_type9 = ServiceType.create(name: "Accounting")
+service_type10 = ServiceType.create(name: "Bin Module")
+service_type11 = ServiceType.create(name: "Bin Monitoring")
+service_type12 = ServiceType.create(name: "SMS Delivery")
+service_type13 = ServiceType.create(name: "Routing")
 
-# Relationships
-client1.services << service1
-client1.services << service2
-client1.services << service3
-client1.services << service4
-client1.services << service5
-client1.services << service6
-client1.save!
+# relationships
+Service.create(client_id: client1.id, service_type_id: service_type1.id, rate: 22.40, registered_users: 0, active_users: 34)
+Service.create(client_id: client1.id, service_type_id: service_type2.id, rate: 22.40, registered_users: 0, active_users: 1)
+Service.create(client_id: client1.id, service_type_id: service_type3.id, rate: 22.40, registered_users: 0, active_users: 3)
+Service.create(client_id: client1.id, service_type_id: service_type4.id, rate: 8.96, registered_users: 0, active_users: 65)
+Service.create(client_id: client1.id, service_type_id: service_type5.id, rate: 22.40, registered_users: 0, active_users: 3)
+Service.create(client_id: client1.id, service_type_id: service_type6.id, rate: 22.40, registered_users: 0, active_users: 151)
 
-client2.services << service1
-client2.services << service6
-client2.services << service7
-client2.save!
+Service.create(client_id: client2.id, service_type_id: service_type1.id, rate: 40.32, registered_users: 0, active_users: 3)
+Service.create(client_id: client2.id, service_type_id: service_type6.id, rate: 40.32, registered_users: 0, active_users: 11)
+Service.create(client_id: client2.id, service_type_id: service_type7.id, rate: 40.32, registered_users: 0, active_users: 17)
 
-client3.services << service1
-client3.services << service5
-client3.services << service6
-client3.save!
+Service.create(client_id: client3.id, service_type_id: service_type1.id, rate: 36.00, registered_users: 0, active_users: 2)
+Service.create(client_id: client3.id, service_type_id: service_type5.id, rate: 36.00, registered_users: 0, active_users: 1)
+Service.create(client_id: client3.id, service_type_id: service_type6.id, rate: 36.00, registered_users: 0, active_users: 5)
 
-client4.services << service1
-client4.services << service2
-client4.services << service6
-client4.save!
+Service.create(client_id: client4.id, service_type_id: service_type1.id, rate: 40.32, registered_users: 0, active_users: 7)
+Service.create(client_id: client4.id, service_type_id: service_type2.id, rate: 40.32, registered_users: 0, active_users: 1)
+Service.create(client_id: client4.id, service_type_id: service_type6.id, rate: 11.20, registered_users: 0, active_users: 68)
 
-client5.services << service1
-client5.services << service6
-client5.save!
+Service.create(client_id: client5.id, service_type_id: service_type1.id, rate: 36.00, registered_users: 0, active_users: 3)
+Service.create(client_id: client5.id, service_type_id: service_type6.id, rate: 36.00, registered_users: 0, active_users: 13)
 
-client6.services << service1
-client6.services << service5
-client6.services << service6
-client6.services << service8
-client6.services << service9
-client6.save!
+Service.create(client_id: client6.id, service_type_id: service_type1.id, rate: 24.64, registered_users: 0, active_users: 10)
+Service.create(client_id: client6.id, service_type_id: service_type5.id, rate: 24.64, registered_users: 0, active_users: 3)
+Service.create(client_id: client6.id, service_type_id: service_type6.id, rate: 24.64, registered_users: 0, active_users: 19)
+Service.create(client_id: client6.id, service_type_id: service_type8.id, rate: 13.44, registered_users: 0, active_users: 35)
+Service.create(client_id: client6.id, service_type_id: service_type9.id, rate: 280.00, registered_users: 0, active_users: 1)
 
-client7.services << service1
-client7.services << service7
-client7.save!
+Service.create(client_id: client7.id, service_type_id: service_type1.id, rate: 24.64, registered_users: 0, active_users: 2)
+Service.create(client_id: client7.id, service_type_id: service_type7.id, rate: 1.00, registered_users: 0, active_users: 200)
 
-client8.services << service1
-client8.services << service5
-client8.save!
+Service.create(client_id: client8.id, service_type_id: service_type1.id, rate: 36.00, registered_users: 0, active_users: 2)
+Service.create(client_id: client8.id, service_type_id: service_type5.id, rate: 36.00, registered_users: 0, active_users: 15)
 
-client9.services << service1
-client9.services << service5
-client9.save!
+Service.create(client_id: client9.id, service_type_id: service_type1.id, rate: 28.00, registered_users: 0, active_users: 3)
+Service.create(client_id: client9.id, service_type_id: service_type5.id, rate: 28.00, registered_users: 0, active_users: 7)
 
-client10.services << service1
-client10.services << service5
-client10.services << service6
-client10.save!
+Service.create(client_id: client10.id, service_type_id: service_type1.id, rate: 40.32, registered_users: 0, active_users: 8)
+Service.create(client_id: client10.id, service_type_id: service_type5.id, rate: 40.32, registered_users: 0, active_users: 1)
+Service.create(client_id: client10.id, service_type_id: service_type6.id, rate: 1.00, registered_users: 0, active_users: 7)
 
-client11.services << service1
-client11.services << service11
-client11.services << service12
-client11.save!
+Service.create(client_id: client11.id, service_type_id: service_type1.id, rate: 1.00, registered_users: 0, active_users: 2)
+Service.create(client_id: client11.id, service_type_id: service_type11.id, rate: 289.32, registered_users: 0, active_users: 1)
+Service.create(client_id: client11.id, service_type_id: service_type12.id, rate: 5.00, registered_users: 0, active_users: 1)
 
-client12.services << service1
-client12.services << service6
-client12.services << service10
-client12.services << service11
-client12.services << service13
-client12.save!
+Service.create(client_id: client12.id, service_type_id: service_type1.id, rate: 24.64, registered_users: 0, active_users: 2)
+Service.create(client_id: client12.id, service_type_id: service_type6.id, rate: 24.64, registered_users: 0, active_users: 0)
+Service.create(client_id: client12.id, service_type_id: service_type10.id, rate: 112.00, registered_users: 0, active_users: 1)
+Service.create(client_id: client12.id, service_type_id: service_type11.id, rate: 11.20, registered_users: 0, active_users: 40)
+Service.create(client_id: client12.id, service_type_id: service_type13.id, rate: 16.80, registered_users: 0, active_users: 4)
 
-client13.services << service1
-client13.save!
+Service.create(client_id: client13.id, service_type_id: service_type1.id, rate: 1.00, registered_users: 0, active_users: 4)
 
-client14.services << service1
-client14.services << service9
-client14.save!
+Service.create(client_id: client14.id, service_type_id: service_type8.id, rate: 22.00, registered_users: 0, active_users: 3)

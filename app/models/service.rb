@@ -1,4 +1,4 @@
 class Service < ApplicationRecord
-    has_many :client_services
-    has_many :clients, through: :client_services
+  belongs_to :service_type
+  belongs_to :client
 end

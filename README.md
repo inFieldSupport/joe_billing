@@ -29,3 +29,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+import data from csv file in lib for seeds

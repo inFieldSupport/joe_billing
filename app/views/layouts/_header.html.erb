@@ -1,0 +1,71 @@
+<aside class="sidebar w-64 md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-blue-600">
+      <div class="sidebar-header flex items-center justify-center py-4">
+        <div class="inline-flex">
+          <a href="#" class="inline-flex flex-row">
+            <img class="h-10 w-10 mr-2" src="https://tailwindui.com/img/logos/mark.svg?color=black&shade=500" alt="Your Company">
+            <span class="leading-10 text-black text-3xl font-bold ml-1 uppercase">Billing</span>
+          </a>
+        </div>
+      </div>
+      <div class="sidebar-content px-4 py-6">
+        <ul class="flex flex-col w-full">
+          <li class="my-px">
+            <div class="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-white hover:text-black">
+              <span class="flex items-center justify-center text-lg text-white hover:text-black">
+                <svg
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  class="h-6 w-6"
+                >
+                  <path
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
+                </svg>
+              <%= link_to "Clients", clients_path, class:"ml-3" %>
+            </div>
+          </li>
+          <li class="my-px">
+            <div class="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-white hover:text-black">
+              <span class="flex items-center justify-center text-lg text-white hover:text-black">
+                <svg
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  class="h-6 w-6"
+                >
+                  <path
+                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                  />
+                </svg>
+              <%= link_to "Service Types", service_types_path, class:"ml-3" %>
+            </div>
+          </li>
+          <li class="my-px">
+            <div class="flex flex-row items-center h-10 px-3 rounded-lg text-white hover:bg-white hover:text-black">
+              <span class="flex items-center justify-center text-lg text-white hover:text-black">
+                <svg
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  class="h-6 w-6"
+                >
+                  <path
+                    d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"
+                  />
+                </svg>
+                <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "ml-3" %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </aside>
