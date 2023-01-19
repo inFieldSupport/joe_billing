@@ -3,7 +3,15 @@ class ServicesController < ApplicationController
 
   # GET /services or /services.json
   def index
-    @services = Service.all
+    @client = Client.find_by(id: params[:client_id]) 
+    @services = @client.services
+    @tax = 13
+    @sub_total = 0
+    @services.each do |service|
+      @sub_total += (service.rate * service.active_users)
+    end
+    @tax_amount = (@sub_total * @tax) / 100
+    @total = @sub_total + @tax_amount
   end
 
   # GET /services/1 or /services/1.json

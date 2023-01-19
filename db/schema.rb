@@ -16,6 +16,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_18_144753) do
 
   create_table "clients", force: :cascade do |t|
     t.string "name"
+    t.string "email"
+    t.string "owner"
+    t.string "address"
+    t.string "state"
     t.integer "total_customers", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

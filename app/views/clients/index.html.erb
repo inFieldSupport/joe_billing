@@ -1,14 +1,41 @@
-<div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
+<!-- component -->
+<div class="flex flex-row min-h-screen w-full bg-gray-100 text-gray-800">
+    <%= render "layouts/header" %>
 
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Clients</h1>
-    <%= link_to 'New client', new_client_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
-  </div>
+    <main class="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in h-screen overflow-auto">
+      <div class="main-content flex flex-col flex-grow p-4">
+        <div class="flex justify-between">
+          <h1 class="font-bold text-2xl text-black my-auto">Clients</h1>
+          <%= link_to 'New client', new_client_path, class: "rounded-lg py-3 px-5 bg-blue-500 text-white block font-medium" %>
+        </div>
 
-  <div id="clients" class="min-w-full">
-    <%= render @clients %>
+        <div class="flex flex-col flex-grow border-4 border-gray-400 border-dashed bg-white rounded mt-4 p-5">
+
+          <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+              <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100">
+                  <thead class="text-xs text-white uppercase bg-blue-600 border-b border-blue-400 dark:text-white">
+                      <tr>
+                          <th scope="col" class="px-6 py-3">
+                            Name
+                          </th>
+                          <th scope="col" class="px-6 py-3">
+                            Info
+                          </th>
+                          <th scope="col" class="px-6 py-3">
+                            Total Customers
+                          </th>
+                          <th scope="col" class="px-6 py-3">
+                            Actions
+                          </th>
+                      </tr>
+                  </thead>
+                  <tbody id="clients">
+                    <%= render @clients %>
+                  </tbody>
+              </table>
+            </div>
+
+        </div>
+      </div>
+    </main>
   </div>
-</div>

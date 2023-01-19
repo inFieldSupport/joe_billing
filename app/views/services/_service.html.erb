@@ -1,32 +1,17 @@
-<div id="<%= dom_id service %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Servicetype:</strong>
+<tr class="whitespace-nowrap" id="<%= dom_id service %>">
+  <td class="px-6 py-4 text-sm text-gray-500">
+    <%= button_to 'Delete', service_path(service), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: "mx-2 rounded-lg py-1 px-2 bg-red-500 font-medium text-white hover:underline" %>
+  </td>
+  <td class="px-6 py-4 text-sm text-gray-900">
     <%= service.service_type.name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Client:</strong>
-    <%= service.client.name %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Rate:</strong>
-    <%= service.rate %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Active users:</strong>
+  </td>
+  <td class="px-6 py-4 text-sm text-gray-500">
     <%= service.active_users %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Registered users:</strong>
-    <%= service.registered_users %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this service", service, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this service', edit_service_path(service), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div>
+  </td>
+  <td class="px-6 py-4 text-sm text-gray-500">
+    <%= service.rate %>
+  </td>
+  <td class="px-6 py-4 text-sm text-gray-500">
+    <%= service.active_users * service.rate %> 
+  </td>
+</tr>

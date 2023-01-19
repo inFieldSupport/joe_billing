@@ -31,3 +31,4 @@ Things you may want to cover:
 * ...
 
 import data from csv file in lib for seeds
+https://dev.to/codepo8/simple-edit-in-place-by-changing-the-type-of-an-input-55p8

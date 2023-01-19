@@ -1,12 +1,9 @@
-<div id="<%= dom_id service_type %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
+<tr class="bg-blue-600 border-b border-blue-400"  id="<%= dom_id service_type %>">
+  <th scope="row" class="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap dark:text-blue-100">
     <%= service_type.name %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this service type", service_type, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this service type', edit_service_type_path(service_type), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div>
+  </th>
+  <td class="px-6 py-4 flex justify-center">
+    <%= link_to 'Edit', edit_client_path(service_type), class: "mx-2 rounded-lg py-1 px-2 bg-orange-500 font-medium text-white hover:underline" %>
+    <%= button_to 'Delete', client_path(service_type), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: "mx-2 rounded-lg py-1 px-2 bg-red-500 font-medium text-white hover:underline" %>
+  </td>
+</tr>  

@@ -1,13 +1,166 @@
-<!-- component -->
-<div class="flex flex-row min-h-screen w-full bg-gray-100 text-gray-800">
-    <%= render "layouts/header" %>
-    <main class="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in">
-      <div class="main-content flex flex-col flex-grow p-4">
-        <h1 class="font-bold text-2xl text-black text-center">Dashboard</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-        <div
-          class="flex flex-col flex-grow border-4 border-gray-400 border-dashed bg-white rounded mt-4"
-        ></div>
-      </div>
-    </main>
-  </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tailwind CSS Invoce </title>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <div class="flex items-center justify-center min-h-screen bg-gray-100">
+            <div class="w-3/5 bg-white shadow-lg">
+                <div class="flex p-4">
+                  <div class="w-1/2">
+                    <h6 class="font-bold">inField ClipBoard inc o/a inField Solutions</h6>
+                    <p class="text-sm text-gray-500">
+                      3600 Steeles Ave East <br>
+                      Markham ON L3R 9Z7 <br>
+                      +1 8334634353 <br>
+                      Billing@inFieldSolutionsInc.com <br>
+                      www.inFieldSolutionsInc.com <br> 
+                      GST/HST Registration No.: 737197897 <br>
+                      Business Number 737197897RT001 <br>
+                    </p>
+                  </div>
+                  <div class="w-1/2">
+                    <%= image_tag "logo", class:"w-full h-auto" %>
+                  </div>
+                </div>
+                <div class="flex p-4">
+                  <div class="w-1/2">
+                    <h6 class="font-bold uppercase">Bill To</h6>
+                    <p class="text-sm text-gray-500">
+                      Jenna Lahaie <br>
+                      Mobile Mechanical Solutions Inc <br>
+                      10791 Coountry Road, PO BOX 208 <br>
+                      Iroquois Ontario K0E 1K0 <br>
+                    </p>
+                  </div>
+                  <div class="w-1/2">
+                    <h2 class="w-full p-2 bg-orange-400 text-black uppercase my-2 font-bold">Invoice: 2184</h2>
+                    <h3 class="w-full p-2 bg-orange-400 text-black uppercase my-2 font-bold">Date: 2023.01.01 terms <span class="font-normal lowercase">Due on receipt</span></h3>
+                    <h3 class="w-full p-2 bg-orange-400 text-black uppercase my-2 font-bold">Due DATE: 2023.01.01</h3>
+                  </div>
+                </div>
+
+                <div class="my-5 w-full h-0.5 bg-orange-400"></div>
+              
+                <div class="flex justify-center p-4">
+                    <div class="border-b border-gray-200 shadow">
+                        <table class="">
+                            <thead class="bg-orange-400">
+                                <tr>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                    </th>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                        Product Name
+                                    </th>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                        Quantity
+                                    </th>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                        Rate
+                                    </th>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                        Subtotal
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                <tr class="whitespace-nowrap">
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        1
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="text-sm text-gray-900">
+                                            Amazon Brand - Symactive Men's Regular Fit T-Shirt
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        4
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        20$
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        30$
+                                    </td>
+                                </tr>
+                                <tr class="text-white bg-gray-400">
+                                    <th colspan="3"></th>
+                                    <td class="text-sm font-bold"><b>Sub Total</b></td>
+                                    <td class="text-sm font-bold"><b>$950.0</b></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="3"></th>
+                                    <td class="text-sm font-bold"><b>Tax Rate</b></td>
+                                    <td class="text-sm font-bold"><b>13.00%</b></td>
+                                </tr>
+                                <tr class="text-white bg-gray-800">
+                                    <th colspan="3"></th>
+                                    <td class="text-sm font-bold"><b>Total</b></td>
+                                    <td class="text-sm font-bold"><b>$999.0</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="text-gray-500 text-center text-sm my-5 mx-8">
+                  Make all deposit checks payable to inField Clipboard Inc.,
+                  otherwise all recurring payments will be processed via credit card. <br>
+                  Send email transfers to billing@infieldclipboard.com. <br>
+                  Please contact us if you wish to pay via Direct Debit, 
+                  or by Credit Card, we will send an authorization form. <br>
+                </div>
+                
+                <div class="my-5 w-full h-0.5 bg-orange-400"></div>
+
+                <h6 class="font-bold ml-5">Tax Summary:</h6>
+                <div class="flex justify-center m-5 w-full">
+                    <div class="border-b border-gray-200 shadow">
+                        <table>
+                            <thead class="bg-orange-400">
+                                <tr>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                        Rate
+                                    </th>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                        Tax
+                                    </th>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                        Net
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                <tr class="whitespace-nowrap">
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        13.00%
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        50.00$
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        900.00$
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="p-4">
+                    <div class="flex items-end justify-end space-x-3">
+                        <button class="px-4 py-2 text-sm text-green-600 bg-green-200 rounded-lg">Send</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </body>
+
+</html>
