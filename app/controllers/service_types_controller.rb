@@ -4,7 +4,7 @@ class ServiceTypesController < ApplicationController
 
   # GET /service_types or /service_types.json
   def index
-    @service_types = ServiceType.all
+    @service_types = ServiceType.order('name ASC')
   end
 
   # GET /service_types/1 or /service_types/1.json

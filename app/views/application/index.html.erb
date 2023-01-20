@@ -1,0 +1,163 @@
+<!--
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tailwind CSS Invoce </title>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto:wght@500&display=swap" rel="stylesheet">
+        <style>
+            body{
+                font-family: 'Raleway', sans-serif;
+                font-family: 'Roboto', sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex items-center justify-center min-h-screen bg-gray-100">
+            <div class="w-3/5 bg-white shadow-lg">
+                <div class="flex p-4">
+                  <div class="w-1/2">
+                    <h6 class="font-bold">inField ClipBoard inc o/a inField Solutions</h6>
+                    <p class="text-sm text-gray-500">
+                      3600 Steeles Ave East <br>
+                      Markham ON L3R 9Z7 <br>
+                      +1 8334634353 <br>
+                      Billing@inFieldSolutionsInc.com <br>
+                      www.inFieldSolutionsInc.com <br> 
+                      GST/HST Registration No.: 737197897 <br>
+                      Business Number 737197897RT001 <br>
+                    </p>
+                  </div>
+                  <div class="w-1/2">
+                    <%= image_tag "logo", class:"w-full h-auto" %>
+                  </div>
+                </div>
+                <div class="flex p-4">
+                  <div class="w-1/2">
+                    <h6 class="font-bold uppercase">Bill To</h6>
+                    <p class="text-sm text-gray-500">
+                      <%= @client.owner %> <br>
+                      <%= @client.name %> <br>
+                      <%= @client.address %> <br>
+                      <%= @client.state %> <br>
+                    </p>
+                  </div>
+                  <div class="w-1/2">
+                    <h2 class="w-full p-2 bg-orange-400 text-black uppercase my-2 font-bold">Invoice: 2184</h2>
+                    <h3 class="w-full p-2 bg-orange-400 text-black uppercase my-2 font-bold">Date: 2023.01.01 terms <span class="font-normal lowercase">Due on receipt</span></h3>
+                    <h3 class="w-full p-2 bg-orange-400 text-black uppercase my-2 font-bold">Due DATE: 2023.01.01</h3>
+                  </div>
+                </div>
+
+                <div class="my-5 w-full h-0.5 bg-orange-400"></div>
+              
+                <div class="flex justify-center p-4">
+                    <div class="border-b border-gray-200 shadow">
+                        <table class="">
+                            <thead class="bg-orange-400">
+                                <tr>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                        Product Name
+                                    </th>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                        Active Users
+                                    </th>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                        Rate
+                                    </th>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                        Subtotal
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white" id="services">
+                                <%= render @services %>
+                                <tr class="text-white bg-gray-400">
+                                    <th colspan="2"></th>
+                                    <td class="text-sm font-bold"><b>Sub Total</b></td>
+                                    <td class="text-sm font-bold"><b><%= @sub_total %>$</b></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2"></th>
+                                    <td class="text-sm font-bold"><b>Tax Rate</b></td>
+                                    <td class="text-sm font-bold"><b><%= @tax %>%</b></td>
+                                </tr>
+                                <tr class="text-white bg-gray-800">
+                                    <th colspan="2"></th>
+                                    <td class="text-sm font-bold"><b>Total</b></td>
+                                    <td class="text-sm font-bold"><b><%= @total %>$</b></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="text-gray-500 text-center text-sm my-5 mx-8">
+                  Make all deposit checks payable to inField Clipboard Inc.,
+                  otherwise all recurring payments will be processed via credit card. <br>
+                  Send email transfers to billing@infieldclipboard.com. <br>
+                  Please contact us if you wish to pay via Direct Debit, 
+                  or by Credit Card, we will send an authorization form. <br>
+                </div>
+                
+                <div class="my-5 w-full h-0.5 bg-orange-400"></div>
+
+                <h6 class="font-bold ml-5">Tax Summary:</h6>
+                <div class="flex justify-center m-5 w-full">
+                    <div class="border-b border-gray-200 shadow">
+                        <table>
+                            <thead class="bg-orange-400">
+                                <tr>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                        Rate
+                                    </th>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                        Tax
+                                    </th>
+                                    <th class="px-4 py-2 text-xs text-black">
+                                        Net
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white">
+                                <tr class="whitespace-nowrap">
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                        <%= @tax %>%
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                      <%= @tax_amount %>$
+                                    </td>
+                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                      <%= @total %>$
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<tr class="whitespace-nowrap" id="<%= dom_id service %>">
+  <td class="px-6 py-4 text-sm text-gray-900">
+    <%= service.service_type.name %>
+  </td>
+  <td class="px-6 py-4 text-sm text-gray-500">
+    <%= service.active_users %>
+  </td>
+  <td class="px-6 py-4 text-sm text-gray-500">
+    <%= service.rate %>
+  </td>
+  <td class="px-6 py-4 text-sm text-gray-500">
+    <%= (service.active_users * service.rate).round(2) %> 
+  </td>
+</tr>
+
+-->
