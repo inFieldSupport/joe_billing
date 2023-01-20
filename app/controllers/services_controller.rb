@@ -1,5 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /services or /services.json
   def index
@@ -10,8 +11,9 @@ class ServicesController < ApplicationController
     @services.each do |service|
       @sub_total += (service.rate * service.active_users)
     end
-    @tax_amount = (@sub_total * @tax) / 100
-    @total = @sub_total + @tax_amount
+    @sub_total = @sub_total.round(2)
+    @tax_amount = ((@sub_total * @tax) / 100).round(2) 
+    @total = (@sub_total + @tax_amount).round(2) 
   end
 
   # GET /services/1 or /services/1.json
@@ -33,7 +35,7 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       if @service.save
-        format.html { redirect_to service_url(@service), notice: "Service was successfully created." }
+        format.html { redirect_to root_path, notice: "Service was successfully created." }
         format.json { render :show, status: :created, location: @service }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -46,7 +48,7 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to service_url(@service), notice: "Service was successfully updated." }
+        format.html { redirect_to root_path, notice: "Service was successfully updated." }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -60,7 +62,7 @@ class ServicesController < ApplicationController
     @service.destroy
 
     respond_to do |format|
-      format.html { redirect_to services_url, notice: "Service was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Service was successfully destroyed." }
       format.json { head :no_content }
     end
   end

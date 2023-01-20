@@ -1,4 +1,5 @@
 class ServiceTypesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_service_type, only: %i[ show edit update destroy ]
 
   # GET /service_types or /service_types.json
@@ -25,7 +26,7 @@ class ServiceTypesController < ApplicationController
 
     respond_to do |format|
       if @service_type.save
-        format.html { redirect_to service_type_url(@service_type), notice: "Service type was successfully created." }
+        format.html { redirect_to service_types_path, notice: "Service type was successfully created." }
         format.json { render :show, status: :created, location: @service_type }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class ServiceTypesController < ApplicationController
   def update
     respond_to do |format|
       if @service_type.update(service_type_params)
-        format.html { redirect_to service_type_url(@service_type), notice: "Service type was successfully updated." }
+        format.html { redirect_to service_types_path, notice: "Service type was successfully updated." }
         format.json { render :show, status: :ok, location: @service_type }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +53,7 @@ class ServiceTypesController < ApplicationController
     @service_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to service_types_url, notice: "Service type was successfully destroyed." }
+      format.html { redirect_to service_types_path, notice: "Service type was successfully destroyed." }
       format.json { head :no_content }
     end
   end

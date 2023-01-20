@@ -6,5 +6,5 @@ Rails.application.routes.draw do
 
   get "/test", to: "application#test"
 
-  root "application#index"
+  root "clients#index"
 end

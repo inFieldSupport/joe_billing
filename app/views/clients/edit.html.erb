@@ -1,8 +1,21 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">Editing client</h1>
+<div class="flex flex-row min-h-screen w-full bg-gray-100 text-gray-800">
+    <%= render "layouts/header" %>
 
-  <%= render "form", client: @client %>
+    <main class="main flex flex-col flex-grow -ml-64 md:ml-0 transition-all duration-150 ease-in h-screen overflow-auto">
+      <div class="main-content flex flex-col flex-grow p-4">
+        <div class="flex justify-center">
+          <h1 class="font-bold text-2xl text-black my-auto">Clients</h1>
+        </div>
 
-  <%= link_to "Show this client", @client, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  <%= link_to "Back to clients", clients_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+        <div class="flex flex-col flex-grow border-4 border-gray-400 border-dashed bg-white rounded mt-4 p-5">
+
+            <div class="relative overflow-x-auto sm:rounded-lg">
+              <%= link_to "< Back", :back, class:"mb-5 rounded-lg py-2 px-3 bg-gray-500 text-white inline-block font-medium cursor-pointer" %>
+              <h1 class="font-bold text-4xl m-5">Editing Client</h1>
+              <%= render "form", client: @client %>
+            </div>
+
+        </div>
+      </div>
+    </main>
 </div>

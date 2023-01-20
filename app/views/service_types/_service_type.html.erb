@@ -3,7 +3,6 @@
     <%= service_type.name %>
   </th>
   <td class="px-6 py-4 flex justify-center">
-    <%= link_to 'Edit', edit_client_path(service_type), class: "mx-2 rounded-lg py-1 px-2 bg-orange-500 font-medium text-white hover:underline" %>
-    <%= button_to 'Delete', client_path(service_type), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: "mx-2 rounded-lg py-1 px-2 bg-red-500 font-medium text-white hover:underline" %>
+    <%= link_to 'Edit', edit_service_type_path(service_type), class: "mx-2 rounded-lg py-1 px-2 bg-orange-500 font-medium text-white hover:underline" %>
   </td>
 </tr>  

@@ -1,7 +1,4 @@
 <tr class="whitespace-nowrap" id="<%= dom_id service %>">
-  <td class="px-6 py-4 text-sm text-gray-500">
-    <%= button_to 'Delete', service_path(service), method: :delete, data: { turbo_confirm: 'Are you sure?' }, class: "mx-2 rounded-lg py-1 px-2 bg-red-500 font-medium text-white hover:underline" %>
-  </td>
   <td class="px-6 py-4 text-sm text-gray-900">
     <%= service.service_type.name %>
   </td>
@@ -12,6 +9,6 @@
     <%= service.rate %>
   </td>
   <td class="px-6 py-4 text-sm text-gray-500">
-    <%= service.active_users * service.rate %> 
+    <%= (service.active_users * service.rate).round(2) %> 
   </td>
 </tr>

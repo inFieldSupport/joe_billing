@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_client, only: %i[ show edit update destroy ]
 
   # GET /clients or /clients.json
@@ -25,7 +26,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        format.html { redirect_to client_url(@client), notice: "Client was successfully created." }
+        format.html { redirect_to root_path, notice: "Client was successfully created." }
         format.json { render :show, status: :created, location: @client }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class ClientsController < ApplicationController
   def update
     respond_to do |format|
       if @client.update(client_params)
-        format.html { redirect_to client_url(@client), notice: "Client was successfully updated." }
+        format.html { redirect_to root_path, notice: "Client was successfully updated." }
         format.json { render :show, status: :ok, location: @client }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +53,7 @@ class ClientsController < ApplicationController
     @client.destroy
 
     respond_to do |format|
-      format.html { redirect_to clients_url, notice: "Client was successfully destroyed." }
+      format.html { redirect_to root_path, notice: "Client was successfully destroyed." }
       format.json { head :no_content }
     end
   end
