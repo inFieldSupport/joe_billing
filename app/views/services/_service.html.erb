@@ -3,12 +3,31 @@
     <%= service.service_type.name %>
   </td>
   <td class="px-6 py-4 text-sm text-gray-500">
-    <%= service.active_users %>
+    <div id="services<%= service.id %>"><%= service.active_users %></div>
+    <%= render "services/active_users_form", service: service %>
   </td>
   <td class="px-6 py-4 text-sm text-gray-500">
-    <%= service.rate %>
+    <div id="service<%= service.id %>"><%= service.rate %></div>
+    <%= render "services/rate_form", service: service %>
   </td>
   <td class="px-6 py-4 text-sm text-gray-500">
     <%= (service.active_users * service.rate).round(2) %> 
   </td>
 </tr>
+
+<script>
+    var f = document.querySelector('#service<%= service.id %>').addEventListener('click', function(event) {
+      var rate_form = document.querySelector('#rate_form<%= service.id %>');
+      rate_form.classList.remove("hidden");
+      rate_form.classList.add("flex");
+      this.classList.add("hidden");
+    });
+</script>
+<script>
+    var f = document.querySelector('#services<%= service.id %>').addEventListener('click', function(event) {
+      var rate_form = document.querySelector('#active_users_form<%= service.id %>');
+      rate_form.classList.remove("hidden");
+      rate_form.classList.add("flex");
+      this.classList.add("hidden");
+    });
+</script>

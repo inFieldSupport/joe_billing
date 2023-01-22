@@ -1,0 +1,6 @@
+<%= form_with(model: service, class: "contents") do |form| %>
+<div class="m-5 hidden" id="active_users_form<%= service.id %>">
+    <%= form.number_field :active_users, class: "rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-1/4" %>
+    <%= form.submit class: "rounded-lg py-1 px-2 bg-blue-600 text-white font-medium cursor-pointer" %>
+</div>
+<% end %>
