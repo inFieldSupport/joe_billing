@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get "/test", to: "application#test"
+  get "/client/:client/send", to: "clients#send_mail", as: "client_send_mail"
 
   root "clients#index"
 end

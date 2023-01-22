@@ -58,6 +58,12 @@ class ClientsController < ApplicationController
     end
   end
 
+  def send_mail
+    client = Client.find(params[:client])
+    ServiceMailer.with(client: client.id).send_email.deliver_later
+    redirect_to root_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_client
