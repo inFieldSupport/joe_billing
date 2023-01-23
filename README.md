@@ -29,5 +29,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
-https://dev.to/codepo8/simple-edit-in-place-by-changing-the-type-of-an-input-55p8

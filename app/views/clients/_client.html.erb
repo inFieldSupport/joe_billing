@@ -1,11 +1,11 @@
-<tr class="bg-blue-600 border-b border-blue-400"  id="<%= dom_id client %>">
-  <th scope="row" class="px-6 py-4 font-medium bg-blue-500 text-blue-50 whitespace-nowrap dark:text-blue-100">
+<tr class="border-b text-gray-500 text-center"  id="<%= dom_id client %>">
+  <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
     <%= client.name %>
   </th>
   <td class="px-6 py-4">
     <%= client.total_customers %>
   </td>
-  <td class="px-6 py-4 flex justify-center bg-blue-500">
+  <td class="px-6 py-4 flex justify-center">
     <%= link_to "Services", services_path(client_id: client.id), class: "mx-2 rounded-lg py-1 px-2 bg-blue-600 font-medium text-white hover:underline" %>
     <%= link_to 'Edit', edit_client_path(client), class: "mx-2 rounded-lg py-1 px-2 bg-orange-500 font-medium text-white hover:underline" %>
   </td>

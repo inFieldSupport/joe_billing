@@ -11,7 +11,7 @@
 
             <div class="relative overflow-x-auto sm:rounded-lg">
               <%= link_to "< Back", :back, class:"mb-5 rounded-lg py-2 px-3 bg-gray-500 text-white inline-block font-medium cursor-pointer" %>
-              <h1 class="font-bold text-4xl m-5">Editing Client</h1>
+              <h1 class="font-bold text-4xl m-5">Editing <%= @client.name %> </h1>
               <%= render "form", client: @client %>
             </div>
 

@@ -1,5 +1,16 @@
 class ApplicationController < ActionController::Base
-    def test        
-      @service = Service.first
+    def bill
+      @client = Client.find(params[:client])
+      @services = Service.where(client_id: @client.id, month: params[:month], year: params[:year])
+      @tax = 13
+      @sub_total = 0
+      @services.each do |service|
+        @sub_total += (service.rate * service.active_users)
+      end
+      @sub_total = @sub_total.round(2)
+      @tax_amount = ((@sub_total * @tax) / 100).round(2) 
+      @total = (@sub_total + @tax_amount).round(2)
+      @month = params[:month]
+      @year = params[:year]
     end
 end

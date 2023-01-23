@@ -1,16 +1,16 @@
-<tr class="whitespace-nowrap" id="<%= dom_id service %>">
-  <td class="px-6 py-4 text-sm text-gray-900">
+<tr class="whitespace-nowrap text-gray-500" id="<%= dom_id service %>">
+  <td class="px-6 py-4 text-sm">
     <%= service.service_type.name %>
   </td>
-  <td class="px-6 py-4 text-sm text-gray-500">
+  <td class="px-6 py-4 text-sm">
     <div id="services<%= service.id %>"><%= service.active_users %></div>
     <%= render "services/active_users_form", service: service %>
   </td>
-  <td class="px-6 py-4 text-sm text-gray-500">
+  <td class="px-6 py-4 text-sm">
     <div id="service<%= service.id %>"><%= service.rate %></div>
     <%= render "services/rate_form", service: service %>
   </td>
-  <td class="px-6 py-4 text-sm text-gray-500">
+  <td class="px-6 py-4 text-sm">
     <%= (service.active_users * service.rate).round(2) %> 
   </td>
 </tr>

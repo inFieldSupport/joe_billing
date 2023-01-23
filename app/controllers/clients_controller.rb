@@ -4,11 +4,25 @@ class ClientsController < ApplicationController
 
   # GET /clients or /clients.json
   def index
-    @clients = Client.order('name ASC')
+    @q = Client.ransack(params[:q])
+    @clients = @q.result
   end
 
   # GET /clients/1 or /clients/1.json
   def show
+  end
+
+  def preview
+    @client = Client.find_by(id: params[:client]) 
+    @services = Service.where(client_id: @client.id, month: params[:month], year: params[:year])
+    @tax = 13
+    @sub_total = 0
+    @services.each do |service|
+      @sub_total += (service.rate * service.active_users)
+    end
+    @sub_total = @sub_total.round(2)
+    @tax_amount = ((@sub_total * @tax) / 100).round(2) 
+    @total = (@sub_total + @tax_amount).round(2)
   end
 
   # GET /clients/new

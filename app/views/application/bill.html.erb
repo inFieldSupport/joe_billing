@@ -75,22 +75,7 @@
                                 </tr>
                             </thead>
                             <tbody class="bg-white" id="services">
-                                <% @services.each do |service| %>
-                                    <tr class="whitespace-nowrap" id="<%= dom_id service %>">
-                                        <td class="px-6 py-4 text-sm text-gray-900">
-                                            <%= service.service_type.name %>
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500">
-                                            <%= service.active_users %>
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500">
-                                            <%= service.rate %>
-                                        </td>
-                                        <td class="px-6 py-4 text-sm text-gray-500">
-                                            <%= (service.active_users * service.rate).round(2) %> 
-                                        </td>
-                                    </tr>
-                                <% end %>
+                                <%= render @services %>
                                 <tr class="text-white bg-gray-400">
                                     <th colspan="2"></th>
                                     <td class="text-sm font-bold"><b>Sub Total</b></td>
@@ -152,9 +137,6 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
-                <div class="flex justify-end">
-                    <%= link_to "Preview Mail", client_send_mail_path(client: @client.id), class:"bg-green-500 m-5 py-2 px-4 rounded-lg" %>
                 </div>
             </div>
         </div>
