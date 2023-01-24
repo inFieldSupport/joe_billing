@@ -74,14 +74,7 @@
                 (Click on any number of active users or rate to edit it)
               </div>
               <div class="my-auto text-gray-500">
-                <%= form_with url:client_preview_path, method: :get do |form| %>
-                  <div class="flex m-2">
-                    <%= form.hidden_field :client, value: @client.id %>
-                    <%= form.number_field :month, class: "mx-2 shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-                    <%= form.number_field :year, class: "mx-2 shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-                    <%= form.submit "Preview", class: "mx-2 rounded-lg py-0 px-3 bg-blue-600 text-white cursor-pointer" %>
-                  </div>
-                <% end %>
+                <%= link_to "Preview", client_preview_path(client: @client.id, month: @month, year: @year), class: "mx-2 my-auto rounded-lg py-2 px-3 bg-blue-600 font-medium text-white hover:underline" %>
               </div>
             </div>
         </div>

@@ -9,7 +9,9 @@ class ServiceMailer < ApplicationMailer
         end
         @sub_total = @sub_total.round(2)
         @tax_amount = ((@sub_total * @tax) / 100).round(2) 
-        @total = (@sub_total + @tax_amount).round(2) 
+        @total = (@sub_total + @tax_amount).round(2)
+        @month = params[:month]
+        @year = params[:year]
         mail(to: @client.email, subject: "This month's bill")
     end
 end

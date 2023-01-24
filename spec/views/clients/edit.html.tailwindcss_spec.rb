@@ -21,7 +21,7 @@ RSpec.describe "clients/edit", type: :view do
 
     assert_select "form[action=?][method=?]", client_path(client), "post" do
 
-      assert_select "input[name=?]", "client[name]"
+      assert_select "input[name=?]", client.name
 
       assert_select "input[name=?]", "client[email]"
 

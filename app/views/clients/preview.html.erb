@@ -154,7 +154,7 @@
                     </div>
                 </div>
                 <div class="flex justify-end">
-                    <%= button_to "Send", client_send_mail_path(client: @client.id), data: { turbo_confirm: 'Are you sure?' }, class:"bg-green-500 m-5 py-2 px-4 rounded-lg" %>
+                    <%= button_to "Send", client_send_mail_path(client: @client.id, month: @month, year: @year), data: { turbo_confirm: 'Are you sure?' }, class:"bg-green-500 m-5 py-2 px-4 rounded-lg" %>
                 </div>
             </div>
             

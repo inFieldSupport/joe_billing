@@ -23,6 +23,8 @@ class ClientsController < ApplicationController
     @sub_total = @sub_total.round(2)
     @tax_amount = ((@sub_total * @tax) / 100).round(2) 
     @total = (@sub_total + @tax_amount).round(2)
+    @month = params[:month]
+    @year = params[:year]
   end
 
   # GET /clients/new
@@ -74,7 +76,7 @@ class ClientsController < ApplicationController
 
   def send_mail
     client = Client.find(params[:client])
-    ServiceMailer.with(client: client.id).send_email.deliver_later
+    ServiceMailer.with(client: client.id, month: params[:month], year: params[:year]).send_email.deliver_later
     redirect_to root_path
   end
 

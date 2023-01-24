@@ -6,7 +6,16 @@
     <%= client.total_customers %>
   </td>
   <td class="px-6 py-4 flex justify-center">
-    <%= link_to "Services", services_path(client_id: client.id), class: "mx-2 rounded-lg py-1 px-2 bg-blue-600 font-medium text-white hover:underline" %>
-    <%= link_to 'Edit', edit_client_path(client), class: "mx-2 rounded-lg py-1 px-2 bg-orange-500 font-medium text-white hover:underline" %>
+    <div class="my-auto text-gray-500">
+      <%= form_with url:services_path(client: client.id), method: :get do |form| %>
+        <div class="flex m-2">
+          <%= form.hidden_field :client, value: client.id %>
+          <%= form.select :month, 1..12, class:"mx-2 shadow rounded-md outline-none px-3 py-2 mt-2" %>
+          <%= form.select :year, 2019..2023, class:"mx-2 shadow rounded-md outline-none px-3 py-2 mt-2" %>
+          <%= form.submit "Services", class: "mx-2 my-auto rounded-lg py-2 px-3 bg-blue-600 font-medium text-white hover:underline" %>
+        </div>
+      <% end %>
+    </div>
+    <%= link_to 'Edit', edit_client_path(client), class: "mx-2 my-auto rounded-lg py-2 px-3 bg-orange-500 font-medium text-white hover:underline" %>
   </td>
 </tr>

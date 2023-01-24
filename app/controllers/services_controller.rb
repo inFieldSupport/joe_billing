@@ -4,8 +4,8 @@ class ServicesController < ApplicationController
 
   # GET /services or /services.json
   def index
-    @client = Client.find_by(id: params[:client_id]) 
-    @services = @client.services
+    @client = Client.find_by(id: params[:client]) 
+    @services = Service.where(client_id: @client.id, month:params[:month], year:params[:year])
     @tax = 13
     @sub_total = 0
     @services.each do |service|
@@ -14,6 +14,8 @@ class ServicesController < ApplicationController
     @sub_total = @sub_total.round(2)
     @tax_amount = ((@sub_total * @tax) / 100).round(2) 
     @total = (@sub_total + @tax_amount).round(2) 
+    @month = params[:month]
+    @year = params[:year]
   end
 
   # GET /services/1 or /services/1.json
@@ -48,7 +50,7 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to services_path(client_id: @service.client.id), notice: "Service was successfully updated." }
+        format.html { redirect_to services_path(client: @service.client.id, month: @service.month, year: @service.year), notice: "Service was successfully updated." }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit, status: :unprocessable_entity }
