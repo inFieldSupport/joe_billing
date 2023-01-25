@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: joe_billing_production
-  username: joe_billing
-  password: <%= ENV["JOE_BILLING_DATABASE_PASSWORD"] %>
+  database: billing_biri
+  username: root
+  password: KpZi6yctXZEssNvK7FsXaMgkcY6zpauf
